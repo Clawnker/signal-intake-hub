@@ -13,6 +13,15 @@
   - post text/thread summary
   - timestamp
 
+- URL normalization requirements:
+  - support both `https://x.com/<handle>/status/<id>` and `https://x.com/i/status/<id>` forms
+  - normalize to canonical post URL before analysis
+  - preserve original URL in metadata for traceability
+- Preferred extraction fields:
+  - post id
+  - conversation id (if available)
+  - quoted/replied post ids (if available)
+
 ### YouTube sources
 - Adapter key: `youtube`
 - Expected dependency: external YouTube extraction/summary skill/tool
@@ -42,3 +51,13 @@
 - Keep provider-specific API logic in `packages/source-adapters`.
 - Keep `packages/intake-core` provider-agnostic.
 - If a dependency is unavailable, adapter should return partial metadata + low confidence (not fail hard).
+
+
+## Public inbox protocol notes
+- Treat inbound social links as untrusted input.
+- Resolve/normalize link shape first, then parse content.
+- If parser cannot enrich an X URL, still create an intake item with:
+  - `sourceType: x`
+  - `sourceUrl` (original)
+  - low-confidence analysis packet
+  - explicit `unknowns` noting parser limitations.

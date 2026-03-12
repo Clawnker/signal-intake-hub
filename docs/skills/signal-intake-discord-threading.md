@@ -12,6 +12,7 @@ Purpose: convert external signals into Discord analysis threads consistently.
 
 ## Required behavior
 1. Normalize input into canonical intake item.
+   - Normalize source URLs before analysis (including `x.com/i/status/<id>` variants).
 2. Classify source + confidence.
 3. Generate analysis packet:
    - summary
@@ -30,3 +31,14 @@ Purpose: convert external signals into Discord analysis threads consistently.
 - dumping raw links without synthesis
 - posting analysis without explicit next actions
 - missing backlink to original source
+
+
+## Example (X status deep link)
+Input:
+- `https://x.com/i/status/2031899292663771375`
+
+Expected handling:
+- classify as `sourceType: x`
+- normalize/canonicalize URL
+- generate analysis packet + Discord thread draft
+- keep original URL in source metadata
