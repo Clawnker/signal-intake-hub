@@ -1,0 +1,10 @@
+{
+  "name": "signal-intake-hub",
+  "private": false,
+  "version": "0.1.0",
+  "description": "Public framework for ingesting signals and generating Discord analysis threads",
+  "scripts": {
+    "build": "echo build:ok",
+    "test": "echo test:ok"
+  }
+}
