@@ -4,26 +4,43 @@ Public framework for channel-driven research intake:
 - ingest signals (X posts, YouTube links, GitHub repos, freeform ideas)
 - normalize into intake items
 - run analysis pipelines
-- generate Discord threads with structured summaries
+- generate Discord thread drafts with structured summaries
 
-## Core flow
-1. Intake source link/text
-2. Parse + classify source type
-3. Enrich metadata (author, timestamp, topic)
-4. Analyze (risk, value, novelty, actionability)
-5. Post thread + analysis packet in Discord
+## Current status (accurate)
+This repo is now a working **monorepo scaffold** with runnable starter wiring.
 
-## Source types
-- X posts / threads
-- YouTube videos
-- GitHub repos
-- Freeform ideas
+### Included now
+- `packages/intake-core`
+  - source type detection
+  - input normalization
+  - analysis packet generation
+- `packages/source-adapters`
+  - adapter stub for parsing source payloads
+- `packages/discord-delivery`
+  - Discord thread draft formatter (dry-run)
+- `apps/starter`
+  - sample pipeline execution in Node
+- `docs/skills/signal-intake-discord-threading.md`
+  - operator/agent skill guide
+- `docs/ROADMAP.md`
+  - phased implementation plan
 
-## Planned modules
-- `packages/intake-core` — schema + routing + scoring
-- `packages/source-adapters` — X/YouTube/GitHub parsers
-- `packages/discord-delivery` — thread creation + update policy
-- `apps/starter` — runnable reference bot
+## Monorepo layout
+- `packages/intake-core`
+- `packages/source-adapters`
+- `packages/discord-delivery`
+- `apps/starter`
 
-## Status
-Initial public scaffold.
+## Quickstart
+```bash
+npm install
+npm run build
+npm run test
+npm run -w @signal-intake/starter dev
+```
+
+## Principles
+1. Separate ingestion, analysis, and delivery.
+2. Keep provider adapters pluggable.
+3. Preserve source traceability to posted thread.
+4. Always include explicit recommendation + next action.

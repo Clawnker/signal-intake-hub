@@ -1,0 +1,15 @@
+{
+  "name": "@signal-intake/starter",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "node src/index.js",
+    "build": "echo starter:build",
+    "test": "echo starter:test"
+  },
+  "dependencies": {
+    "@signal-intake/core": "0.1.0",
+    "@signal-intake/discord-delivery": "0.1.0"
+  }
+}

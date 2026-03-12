@@ -1,16 +1,26 @@
 # AGENTS.md — signal-intake-hub contributor contract
 
-## Goal
-Build a reusable, public signal-ingestion + analysis-to-thread framework.
+## Mission
+Build a reusable public framework for ingesting external signals and producing actionable Discord analysis threads.
 
-## Rules
-1. Keep providers pluggable (no hard lock to one API).
-2. Keep scoring and routing deterministic where possible.
-3. Separate ingestion, analysis, and delivery layers.
-4. Never embed private keys, channel IDs, or org-specific secrets.
-5. Document expected input/output schemas for every module.
+## Scope boundaries
+- No private channel IDs, secrets, or org-only assumptions.
+- Keep code generic and adapter-driven.
+- Keep docs synchronized with what is actually implemented.
 
-## Verification before merge
-- Build passes
-- Tests pass
-- README/docs reflect shipped behavior
+## Required workflow
+1. Plan the change and identify module target.
+2. Implement in the correct layer:
+   - intake-core (normalization/analysis)
+   - source-adapters (provider-specific parsing/enrichment)
+   - discord-delivery (thread output contract)
+   - starter (reference orchestration)
+3. Run verification:
+   - `npm run build`
+   - `npm run test`
+4. Commit with clear scope and update docs.
+
+## Definition of done
+- Build/test pass
+- README + ROADMAP + skill docs match shipped behavior
+- Output contains source traceability and explicit recommendation

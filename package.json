@@ -1,10 +1,14 @@
 {
   "name": "signal-intake-hub",
-  "private": false,
-  "version": "0.1.0",
+  "private": true,
+  "version": "0.2.0",
   "description": "Public framework for ingesting signals and generating Discord analysis threads",
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ],
   "scripts": {
-    "build": "echo build:ok",
-    "test": "echo test:ok"
+    "build": "npm run --workspaces --if-present build",
+    "test": "npm run --workspaces --if-present test"
   }
 }

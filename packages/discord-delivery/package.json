@@ -1,0 +1,10 @@
+{
+  "name": "@signal-intake/discord-delivery",
+  "version": "0.1.0",
+  "type": "module",
+  "main": "src/index.js",
+  "scripts": {
+    "build": "echo discord-delivery:build",
+    "test": "echo discord-delivery:test"
+  }
+}

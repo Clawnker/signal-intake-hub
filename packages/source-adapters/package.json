@@ -1,0 +1,10 @@
+{
+  "name": "@signal-intake/source-adapters",
+  "version": "0.1.0",
+  "type": "module",
+  "main": "src/index.js",
+  "scripts": {
+    "build": "echo source-adapters:build",
+    "test": "echo source-adapters:test"
+  }
+}
