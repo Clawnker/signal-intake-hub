@@ -25,6 +25,15 @@ This repo is now a working **monorepo scaffold** with runnable starter wiring.
 - `docs/ROADMAP.md`
   - phased implementation plan
 
+
+## Dependency model
+This project is designed to **plug into existing parsing skills/tools** for source enrichment:
+- X/Twitter parsing skill/tool
+- YouTube parsing/summary skill/tool
+- GitHub skill/tool (`gh` or API)
+
+See `docs/DEPENDENCIES.md` for adapter contracts and fallback behavior.
+
 ## Monorepo layout
 - `packages/intake-core`
 - `packages/source-adapters`
