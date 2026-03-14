@@ -5,6 +5,6 @@
   "main": "src/index.js",
   "scripts": {
     "build": "echo source-adapters:build",
-    "test": "echo source-adapters:test"
+    "test": "node --test src/*.test.js"
   }
 }
